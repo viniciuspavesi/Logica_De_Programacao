@@ -1,0 +1,70 @@
+package ListaMétodos;
+
+import javax.swing.JOptionPane;
+
+// Faça um programa que receba as três notas de um aluno e pergunte ao professor qual média
+// ele deseja calcular: aritmética ou ponderada. Se for a média ponderada, os pesos de cada
+// nota devem ser informados.
+// - Cada média deverá ser calculada por um método;
+// - Os dois métodos devem receber como parâmetros as notas;
+// - No caso do método da média ponderada, além das notas, o método deverá receber também os
+// pesos, que devem ser previamente solicitados ao usuário;
+// - Os dois métodos devem retornar a média;
+// - Um método deve ser criado para receber a média final e mostrar se o aluno está aprovado
+// ou reprovado, considerando que a média mínima para aprovação é 7.
+
+
+public class Exercicio2 {
+
+	public static void main(String[] args) {
+	
+		
+		double[] notas = new double[3];
+		for (int i = 0; i < 3; i++) {
+			notas[i] = Integer
+					.parseInt(JOptionPane.showInputDialog("Informe a " + (i + 1) + "° nota do aluno: "));
+		}
+		
+		int tipoMedia = Integer.parseInt(JOptionPane.showInputDialog("Informe o tipo de média desejada: "
+				+ "\n 1- Aritmética"
+				+ "\n 2- Ponderada"));
+		
+		while ((tipoMedia != 1) && (tipoMedia != 2)){
+			tipoMedia = Integer.parseInt(JOptionPane.showInputDialog("Informe o tipo de média desejada: "
+					+ "\n 1- Aritmética"
+					+ "\n 2- Ponderada"));
+		
+		switch (tipoMedia) {
+		
+		case 1:
+			double media = calcularAritmetica(notas);
+			JOptionPane.showMessageDialog(null, media, "Sua média Aritmética é:", JOptionPane.INFORMATION_MESSAGE);
+		default:
+			
+			}
+		}
+	}
+		
+	public static double calcularAritmetica (double [] notas) {
+		
+		double media = notas[0] + notas[1] + notas [2] / 3;
+			
+		return media;
+	}
+	
+	public static double calcularPonderada (double tipoMedia, double notas, double media, double soma) {
+		
+		if (tipoMedia == 2) {
+			for (int i=0; i<3; i++) {
+				soma = soma + i;
+				media = soma / 3;
+				
+			}
+		}
+		return tipoMedia;
+	}
+	
+		
+}
+	
+
